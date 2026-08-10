@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maternal Health Risk Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Maternal Health Risk Predictor</h1>
+            <p class="subtitle">Enter patient health parameters to evaluate maternal health risk using the trained
+                neural network model.</p>
+        </header>
+
+        <!-- Main Card -->
+        <div class="card">
+
+            <!-- Quick Preset Buttons for Easy Testing -->
+            <div class="preset-section">
+                <span class="preset-label">Fill with Sample Data:</span>
+                <button type="button" class="btn-preset" id="presetLow">Low Risk Sample</button>
+                <button type="button" class="btn-preset" id="presetHigh">High Risk Sample</button>
+                <button type="button" class="btn-preset btn-clear" id="btnClear">Clear Form</button>
+            </div>
+
+            <!-- Input Form -->
+            <form id="predictionForm">
+                <div class="form-grid">
+
+                    <!-- 1. Age -->
+                    <div class="form-group">
+                        <label for="age">Age (years):</label>
+                        <input type="number" id="age" name="age" step="1" min="10" max="100" placeholder="e.g. 25"
+                            required>
+                        <small class="hint">Normal range: 15 - 50</small>
+                    </div>
+
+                    <!-- 2. Systolic Blood Pressure -->
+                    <div class="form-group">
+                        <label for="systolic_bp">Systolic BP (mmHg):</label>
+                        <input type="number" id="systolic_bp" name="systolic_bp" step="1" min="50" max="220"
+                            placeholder="e.g. 120" required>
+                        <small class="hint">Upper reading (Normal: 90 - 120)</small>
+                    </div>
+
+                    <!-- 3. Diastolic Blood Pressure -->
+                    <div class="form-group">
+                        <label for="diastolic_bp">Diastolic BP (mmHg):</label>
+                        <input type="number" id="diastolic_bp" name="diastolic_bp" step="1" min="30" max="140"
+                            placeholder="e.g. 80" required>
+                        <small class="hint">Lower reading (Normal: 60 - 80)</small>
+                    </div>
+
+                    <!-- 4. Blood Sugar -->
+                    <div class="form-group">
+                        <label for="blood_sugar">Blood Sugar (mmol/L):</label>
+                        <input type="number" id="blood_sugar" name="blood_sugar" step="0.01" min="1" max="30"
+                            placeholder="e.g. 6.5" required>
+                        <small class="hint">Blood glucose level (Normal: 4.0 - 7.8)</small>
+                    </div>
+
+                    <!-- 5. Body Temperature -->
+                    <div class="form-group">
+                        <label for="body_temp">Body Temperature (°F):</label>
+                        <input type="number" id="body_temp" name="body_temp" step="0.1" min="90" max="110"
+                            placeholder="e.g. 98.6" required>
+                        <small class="hint">Body temperature in Fahrenheit (Normal: 97 - 99)</small>
+                    </div>
+
+                    <!-- 6. Heart Rate -->
+                    <div class="form-group">
+                        <label for="heart_rate">Heart Rate (bpm):</label>
+                        <input type="number" id="heart_rate" name="heart_rate" step="1" min="40" max="200"
+                            placeholder="e.g. 76" required>
+                        <small class="hint">Beats per minute (Normal: 60 - 100)</small>
+                    </div>
+
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-actions">
+                    <button type="submit" id="submitBtn" class="btn-primary">
+                        <span id="btnText">Predict Risk</span>
+                        <span id="btnSpinner" class="spinner" style="display: none;"></span>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Error Message Alert -->
+            <div id="errorAlert" class="alert alert-error" style="display: none;">
+                <strong>Error:</strong> <span id="errorMessage"></span>
+            </div>
+
+            <!-- Prediction Result Section -->
+            <div id="resultSection" class="result-section" style="display: none;">
+                <h2>Prediction Result</h2>
+
+                <div class="result-badge-container">
+                    <span id="riskBadge" class="badge">Low Risk</span>
+                </div>
+
+                <div class="result-details">
+                    <p><strong>Model Raw Output:</strong> <span id="rawScore">0.00</span></p>
+                    <p><strong>Recommendation:</strong> <span id="recommendationText"></span></p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- How It Works Educational Section -->
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Maternal Health Risk ML Application &bull; Built with HTML, CSS, JavaScript & Flask</p>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript File -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
