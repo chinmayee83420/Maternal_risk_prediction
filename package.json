@@ -1,0 +1,23 @@
+{
+  "name": "maternal-risk-prediction-system",
+  "version": "2.0.0",
+  "description": "Full-stack Maternal Health Risk Prediction Application with Express Auth Gateway, Python Keras ML Microservice, PostgreSQL, and React UI",
+  "scripts": {
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:express": "npm --prefix express-backend run dev",
+    "dev:python": "cd python-backend && python app.py",
+    "install:all": "npm --prefix express-backend install && npm --prefix frontend install"
+  },
+  "keywords": [
+    "maternal-health",
+    "react",
+    "express",
+    "python",
+    "keras",
+    "tensorflow",
+    "postgresql",
+    "machine-learning"
+  ],
+  "author": "",
+  "license": "ISC"
+}

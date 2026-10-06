@@ -1,13 +1,33 @@
-# Python virtual environment
+# Node / Frontend / Express Dependencies
+node_modules/
+frontend/node_modules/
+express-backend/node_modules/
+dist/
+frontend/dist/
+.vite/
+
+# Python virtual environment & cache
 .venv/
 venv/
 ENV/
 env/
-
-# Python caching
 __pycache__/
 *.py[cod]
 *$py.class
+backend/__pycache__/
+python-backend/__pycache__/
+
+# Database & SQLite files
+*.db
+*.sqlite
+*.sqlite3
+express-backend/*.sqlite
+
+# Environment variables & secrets
+.env
+backend/.env
+express-backend/.env
+python-backend/.env
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
@@ -20,7 +40,3 @@ Thumbs.db
 .vscode/
 .idea/
 .gemini/
-
-# Flask & Python local config
-.env
-instance/
